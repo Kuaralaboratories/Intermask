@@ -1,0 +1,34 @@
+{
+  "name": "intermask",
+  "version": "1.0.0",
+  "description": "A lightweight option like Electron.js for developing GUI's more easily.",
+  "main": "index.js",
+  "gypfile": true,
+  "scripts": {
+    "build": "node-gyp configure build",
+    "test": "node --napi-modules ./example.js",
+    "install": "node-gyp rebuild"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kuaralaboratories/Intermask.git"
+  },
+  "keywords": [
+    "electron",
+    "javascript",
+    "gui"
+  ],
+  "author": "Yakup Cemil Kayabaş",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "node-addon-api": "^1.0.0",
+    "node-gyp": "^7.0.0"
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "bugs": {
+    "url": "https://github.com/Kuaralaboratories/Intermask/issues"
+  },
+  "homepage": "https://github.com/Kuaralaboratories/Intermask#readme"
+}
