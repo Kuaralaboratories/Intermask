@@ -1,7 +1,3 @@
-Here’s a README for the Intermask project:
-
----
-
 # Intermask
 
 Intermask is a C++ library that integrates with Node.js through N-API, providing a lightweight interface for managing and manipulating webview windows. Developed under Kuaralabs, Intermask enables efficient creation and management of webview-based applications with functionality for setting titles, sizes, and more.
@@ -104,7 +100,3 @@ This project is licensed under the [GNU General Public License v3.0](https://www
 ## Contact
 
 For any inquiries or support, please reach out to Kuaralabs at [contact@kuaralabs.com](mailto:contact@kuaralabs.com) or with "Intermask" title please at [project@kuaralabs.com](mailto:project@kuaralabs.com)
-
----
-
-Feel free to modify or expand upon this template as needed!
