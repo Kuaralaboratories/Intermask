@@ -23,14 +23,15 @@ Intermask is a C++ library that integrates with Node.js through N-API, providing
 To use Intermask, you will need Node.js and npm installed. You can build the project using the provided `binding.gyp` file.
 
 **Clone the Repository:**
+```sh
+npm i intermask
+```
 
-    ```sh
-    npm i intermask
-    ```
-    or
-    ```sh
-    yarn add intermask
-    ```
+or
+
+```sh
+yarn add intermask
+```
 
 ## Usage
 
