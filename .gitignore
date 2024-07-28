@@ -1,0 +1,5 @@
+.fleet/
+.vscodium/
+.vscode/
+node_modules/
+build/*
