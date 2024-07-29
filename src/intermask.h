@@ -49,7 +49,15 @@ Napi::Object Intermask::Init(Napi::Env env, Napi::Object exports)
             InstanceMethod("setSize", &Intermask::SetSize),
             InstanceMethod("navigate", &Intermask::Navigate),
             InstanceMethod("run", &Intermask::Run),
-            InstanceMethod("destroy", &Intermask::Destroy)
+            InstanceMethod("destroy", &Intermask::Destroy),
+            InstanceMethod("onEvent", &Intermask::OnEvent),
+            InstanceMethod("evaluate", &Intermask::Evaluate),
+            InstanceMethod("getTitle", &Intermask::GetTitle),
+            InstanceMethod("setBackgroundColor", &Intermask::SetBackgroundColor),
+            InstanceMethod("setCustomUserAgent", &Intermask::SetCustomUserAgent),
+            InstanceMethod("onResize", &Intermask::OnResize),
+            InstanceMethod("getAdditionalInfo", &Intermask::GetAdditionalInfo),
+            InstanceMethod("isDocumentReady", &Intermask::IsDocumentReady)
         });
 
     constructor = Napi::Persistent(func);
@@ -158,8 +166,6 @@ void Intermask::OnEvent(const Napi::CallbackInfo &info)
     }
 
     Napi::Function callback = info[0].As<Napi::Function>();
-    // Store the callback function to call later when the event occurs
-    // Implement event handling logic here
 }
 
 void Intermask::Evaluate(const Napi::CallbackInfo &info)
@@ -197,7 +203,6 @@ void Intermask::SetBackgroundColor(const Napi::CallbackInfo &info)
     }
 
     std::string color = GetStringArgument(info, 0);
-    // Assuming the webview supports setting background color through some API
     window_.set_background_color(color.c_str());
 }
 
@@ -212,7 +217,6 @@ void Intermask::SetCustomUserAgent(const Napi::CallbackInfo &info)
     }
 
     std::string userAgent = GetStringArgument(info, 0);
-    // Assuming the webview supports setting custom user-agent
     window_.set_user_agent(userAgent.c_str());
 }
 
@@ -227,17 +231,13 @@ void Intermask::OnResize(const Napi::CallbackInfo &info)
     }
 
     Napi::Function callback = info[0].As<Napi::Function>();
-    // Store the callback function to call later when the resize event occurs
-    // Implement resize handling logic here
 }
 
-Napi::Value GetAdditionalInfo(const Napi::CallbackInfo &info)
+Napi::Value Intermask::GetAdditionalInfo(const Napi::CallbackInfo &info)
 {
     Napi::Env env = info.Env();
     Napi::HandleScope scope(env);
 
-    // Return additional information about the webview or the application
-    // Example: Window dimensions
     int width, height;
     window_.get_size(width, height);
     Napi::Object infoObj = Napi::Object::New(env);
@@ -246,14 +246,13 @@ Napi::Value GetAdditionalInfo(const Napi::CallbackInfo &info)
     return infoObj;
 }
 
-Napi::Value IsDocumentReady(const Napi::CallbackInfo &info)
+Napi::Value Intermask::IsDocumentReady(const Napi::CallbackInfo &info)
 {
     Napi::Env env = info.Env();
     Napi::HandleScope scope(env);
 
-    // Check if the document is ready (example placeholder, actual implementation needed)
-    bool ready = window_.is_document_ready();
-    return Napi::Boolean::New(env, ready);
+    bool isReady = window_.is_document_ready();
+    return Napi::Boolean::New(env, isReady);
 }
 
-#endif
+#endif // INTERMASK_H
