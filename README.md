@@ -2,6 +2,8 @@
 
 Intermask is a C++ library that integrates with Node.js through N-API, providing a lightweight interface for managing and manipulating webview windows. Developed under Kuaralabs, Intermask enables efficient creation and management of webview-based applications with functionality for setting titles, sizes, and more.
 
+![Intermask Logo](images/Intermask.svg)
+
 ## Features
 
 - **SetTitle**: Update the title of the webview window.
